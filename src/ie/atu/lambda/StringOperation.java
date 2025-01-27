@@ -1,8 +1,6 @@
 package ie.atu.lambda;
 
-//Functional Interface
+@FunctionalInterface
 public interface StringOperation {
-
-    // Single Abstract Method (SAM) interface
-    String apply(String str);
+    String operate(String str);
 }
