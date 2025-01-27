@@ -1,11 +1,20 @@
 package ie.atu.lambda;
 
+import java.util.function.Function;
+
 public class Main {
     public static void main(String[] args) {
-        // Using a lambda expression to implement the StringOperation interface
-        StringOperation toUpperCase = str -> str.toUpperCase();
         
-        // Testing the lambda expression
-        System.out.println("Result: " + toUpperCase.operate("hello world"));
+        // Define a lambda to trim spaces from a string
+        Function<String, String> trimSpaces = s -> s.trim();
+
+        // Define a lambda to convert a string to lowercase
+        Function<String, String> toLowerCase = s -> s.toLowerCase();
+
+        // Combine the two lambdas using andThen
+        Function<String, String> combinedOperation = trimSpaces.andThen(toLowerCase);
+
+        // Apply the combined operation
+        System.out.println("Result: " + combinedOperation.apply("  Hello World  "));
     }
 }
